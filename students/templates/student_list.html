@@ -35,19 +35,6 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        img.student-photo {
-            display: block;
-            margin: 0 auto;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .no-photo {
-            text-align: center;
-            color: #999;
-        }
-        .serial-number {
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
@@ -55,41 +42,25 @@
     <table>
         <thead>
             <tr>
-                <th>Serial No.</th>
+                <th>S. No</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Gender</th>
-                <th>Father's Name</th>
-                <th>Date of Birth</th>
-                <th>Joining Date</th>
                 <th>Email</th>
-                <th>Phone Number</th>
-                <th>Address</th>
-                <th>Aadhar Number</th>
-                <th>Photo</th>
+                <th>Contact</th>
+                <th>Date of Birth</th>
             </tr>
         </thead>
         <tbody>
             {% for index, student in enumerated_students %}
                 <tr>
-                    <td class="serial-number">{{ index }}</td>
+                    <td>{{ index }}</td>
                     <td>{{ student.first_name }}</td>
                     <td>{{ student.last_name }}</td>
                     <td>{{ student.gender }}</td>
-                    <td>{{ student.father_name }}</td>
-                    <td>{{ student.date_of_birth }}</td>
-                    <td>{{ student.joining_date }}</td>
                     <td>{{ student.email }}</td>
                     <td>{{ student.phone_number }}</td>
-                    <td>{{ student.address }}</td>
-                    <td>{{ student.aadhar_number }}</td>
-                    <td>
-                        {% if student.photo %}
-                            <img src="{{ student.photo.url }}" alt="Student Photo" width="80" class="student-photo">
-                        {% else %}
-                            <p class="no-photo">No photo available</p>
-                        {% endif %}
-                    </td>
+                    <td>{{ student.date_of_birth }}</td>
                 </tr>
             {% endfor %}
         </tbody>
